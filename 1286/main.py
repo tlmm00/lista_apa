@@ -1,13 +1,13 @@
 def main():
     # try:
-        n = int(input())
+        n = int(input()) # qtt pizzas
         if(n==0):
             quit()
 
-        p = int(input())
+        p = int(input()) # Roberto max
 
-        dist = []
-        num_pizzas = []
+        dist = [] # delivery time list
+        num_pizzas = [] # delivery qtt list
         for i in range(n):
             d = input().split()
             dist.append(int(d[0]))
@@ -19,9 +19,13 @@ def main():
         while(True):
             min_pizza = min(num_pizzas)
 
-            # if(len([x.index for x in num_pizzas if x==min_pizza]) > 1):
-            #     ds = [int(x) for x in dists if x.index in [x.index for x in num_pizzas if x==min_pizza]]
-            #     min_pizza = num_pizzas.index(dists.index(max(ds)))
+            if(len([x for x in num_pizzas if x==min_pizza]) > 1):
+                ds = []
+                
+                # ds = [dist[j] for j in range(len(dist)) if dist[j] in
+                #  [num_pizzas[i] for i in range(len(num_pizzas)) if num_pizzas[i]==min_pizza]]
+                print(ds)
+                min_pizza = num_pizzas.index(dist.index(max(ds)))
             
             if(total_roberto + min_pizza > p):
                 break
