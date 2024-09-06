@@ -16,30 +16,27 @@ def main():
         total_roberto = 0
         total_time = 0
         
-        while(True):
-            min_pizza = min(num_pizzas)
-
-            if(len([x for x in num_pizzas if x==min_pizza]) > 1):
-                ds = []
-                
-                # ds = [dist[j] for j in range(len(dist)) if dist[j] in
-                #  [num_pizzas[i] for i in range(len(num_pizzas)) if num_pizzas[i]==min_pizza]]
-                print(ds)
-                min_pizza = num_pizzas.index(dist.index(max(ds)))
+        while(len(num_pizzas) > 0):
+            l = []
+            for i in range(len(num_pizzas)):
+                l.append(dist[i]/num_pizzas[i])
             
+            id_max = l.index(max(l))
+
+            max_dist = dist[id_max]
+            min_pizza = num_pizzas[id_max]
+
             if(total_roberto + min_pizza > p):
                 break
 
-            total_time += dist[num_pizzas.index(min_pizza)]
+            total_time += max_dist
             total_roberto += min_pizza
-
-            dist.remove(dist[num_pizzas.index(min_pizza)])
-            num_pizzas.remove(min_pizza)
-
+            
+            dist.pop(id_max)
+            num_pizzas.pop(id_max)
+            
 
         print(total_time, " min.")
-    # except:
-    #     quit()
 
 while(True):
     main()

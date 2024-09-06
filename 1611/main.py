@@ -9,7 +9,6 @@ def quick_sort(l):
 
         return quick_sort(left) + middle + quick_sort(right)
 
-
 def main():
     try:
         T = int(input())
@@ -23,6 +22,7 @@ def main():
             
             list_andares = [int(x) for x in input().split()]
             list_andares_sorted = quick_sort(list_andares)
+            list_andares_sorted.reverse()
 
             res = 0
             i = 0
@@ -30,6 +30,7 @@ def main():
                 c_andares = list_andares_sorted[i:i+c]
                 res += 2*max(c_andares)
                 i+=c
+                
                 
             print(res)
     except:
